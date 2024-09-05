@@ -3,33 +3,85 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
+    <style>
+        /* CSS untuk mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
         }
-    </script>
+
+        /* CSS untuk desktop */
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+
+            /* Hide hamburger button on desktop */
+            #menu-toggle {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-white dark:bg-gray-900">
 
     <!-- Navbar -->
-    <nav class="bg-blue-600 dark:bg-gray-800 p-4">
+    <nav class="bg-blue-600 dark:bg-gray-800 p-4 relative">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-white text-xl font-bold">MyPortfolio</a>
-            <ul class="flex space-x-6 text-white">
+            <!-- Hamburger Icon -->
+            <button id="menu-toggle" class="text-white text-2xl md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="nav-links" class="nav-links hidden md:flex space-x-6 text-white">
                 <li><a href="#about" class="hover:text-gray-300">About</a></li>
                 <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
                 <li><a href="#blog" class="hover:text-gray-300">Blog</a></li>
                 <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
             </ul>
-            <button id="theme-toggle"
-                class="bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded">
-                Dark Mode
-            </button>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-white dark:bg-gray-900 py-16">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-6">
+            <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
+                    Halo Semua 👋, saya
+                    <span class="text-teal-500">Radid Aditia Renaldi</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">
+                    Lecturer & Content Creator
+                </p>
+                <p class="mt-2 text-gray-500 dark:text-gray-400">
+                    Belajar web programming itu mudah dan menyenangkan bukan? <br>
+                    <span class="font-bold">Bukan!</span>
+                </p>
+                <a href="#contact"
+                    class="mt-6 inline-block bg-teal-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-600 transition duration-300">
+                    Hubungi Saya
+                </a>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                <div class="relative rounded-full bg-teal-200 w-64 h-64 md:w-80 md:h-80 overflow-hidden">
+                    <img src="poto.jpg" alt="radid aditia" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
