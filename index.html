@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Cek preferensi tema dari local storage
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
+
 <body class="bg-white dark:bg-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 dark:bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-xl font-bold">MyPortfolio</a>
+            <ul class="flex space-x-6 text-white">
+                <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+                <li><a href="#blog" class="hover:text-gray-300">Blog</a></li>
+                <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+            </ul>
+            <button id="theme-toggle"
+                class="bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded">
+                Dark Mode
+            </button>
+        </div>
+    </nav>
